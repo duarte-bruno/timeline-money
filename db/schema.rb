@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 4) do
     t.decimal "value", null: false
     t.date "date", null: false
     t.string "description", null: false
+    t.boolean "effected", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["entry_type_id"], name: "index_entries_on_entry_type_id"

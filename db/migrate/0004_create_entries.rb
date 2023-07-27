@@ -5,6 +5,7 @@ class CreateEntries < ActiveRecord::Migration[7.0]
       t.decimal :value, null: false
       t.date :date, null: false
       t.string :description, null: false
+      t.boolean :effected, default: false
 
       t.timestamps
     end
