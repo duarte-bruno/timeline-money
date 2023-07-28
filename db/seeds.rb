@@ -9,3 +9,8 @@
 # Users --------------------------
 
 user = User.create(name: 'Bruno Duarte Pereira Santos', email: 'brunopereiras@icloud.com', password: 'Brunops-01', terms_of_service: '1')
+
+# Accounts --------------------------
+
+itau_account = Account.create(user: user, name: 'Itaú')
+nubank_account = Account.create(user: user, name: 'Nubank')
