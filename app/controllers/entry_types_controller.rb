@@ -1,4 +1,5 @@
 class EntryTypesController < ApplicationController
+  before_action :authorize_request
   before_action :set_entry_type, only: %i[ show update destroy ]
 
   # GET /entry_types

@@ -1,9 +1,10 @@
 class AccountsController < ApplicationController
+  before_action :authorize_request
   before_action :set_account, only: %i[ show update destroy ]
 
   # GET /accounts
   def index
-    @accounts = Account.all
+    @accounts = Account.where(user: @current_user)
 
     render json: @accounts
   end
