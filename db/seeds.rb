@@ -12,8 +12,9 @@ user = User.create(name: 'Bruno Duarte Pereira Santos', email: 'brunopereiras@ic
 
 # Accounts --------------------------
 
-itau_account = Account.create(user: user, name: 'Itaú')
-nubank_account = Account.create(user: user, name: 'Nubank')
+itau_account = Account.create(user: user, name: 'Itaú Conjunto')
+nubank_bruno_account = Account.create(user: user, name: 'Nubank Bruno')
+nubank_bruna_account = Account.create(user: user, name: 'Nubank Bruna')
 
 # EntryTypes --------------------------
 
