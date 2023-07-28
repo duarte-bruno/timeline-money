@@ -14,3 +14,8 @@ user = User.create(name: 'Bruno Duarte Pereira Santos', email: 'brunopereiras@ic
 
 itau_account = Account.create(user: user, name: 'Itaú')
 nubank_account = Account.create(user: user, name: 'Nubank')
+
+# EntryTypes --------------------------
+
+income = EntryType.create(name: 'income')
+expense = EntryType.create(name: 'expense')
