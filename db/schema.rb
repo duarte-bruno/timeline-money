@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 4) do
   create_table "accounts", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", null: false
-    t.decimal "balance", null: false
+    t.decimal "balance", precision: 15, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_accounts_on_user_id"
@@ -25,12 +25,14 @@ ActiveRecord::Schema[7.0].define(version: 4) do
 
   create_table "entries", force: :cascade do |t|
     t.bigint "entry_type_id", null: false
-    t.decimal "value", null: false
+    t.bigint "account_id", null: false
+    t.decimal "value", precision: 15, scale: 2, null: false
     t.date "date", null: false
     t.string "description", null: false
     t.boolean "effected", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_entries_on_account_id"
     t.index ["entry_type_id"], name: "index_entries_on_entry_type_id"
   end
 
@@ -51,5 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 4) do
   end
 
   add_foreign_key "accounts", "users"
+  add_foreign_key "entries", "accounts"
   add_foreign_key "entries", "entry_types"
 end
