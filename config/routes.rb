@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :accounts
 
   post '/auth/login', to: 'authentication#login'
+
+  get '/statement', to: 'statement#index'
 end

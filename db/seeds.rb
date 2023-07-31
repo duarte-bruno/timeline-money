@@ -23,16 +23,16 @@ expense = EntryType.create(name: 'expense')
 
 # Entry --------------------------
 
-Entry.create(account: itau_account, entry_type: income, value: 1000.0, date: Date.today, description: 'Salário Bruno')
-Entry.create(account: itau_account, entry_type: income, value: 1000.0, date: Date.today, description: 'Salário Bruna')
-Entry.create(account: nubank_bruna_account, entry_type: income, value: 1000.0, date: Date.today, description: 'Reserva de emergência')
-Entry.create(account: nubank_bruno_account, entry_type: income, value: 100.0, date: Date.today, description: 'Dinheiro extra')
+Entry.create(account: itau_account, entry_type: income, value: 1000.0, date: Date.today-10.days, description: 'Salário Bruno')
+Entry.create(account: itau_account, entry_type: income, value: 1000.0, date: Date.today-10.days, description: 'Salário Bruna')
+Entry.create(account: nubank_bruna_account, entry_type: income, value: 1000.0, date: Date.today-8.days, description: 'Reserva de emergência')
+Entry.create(account: nubank_bruno_account, entry_type: income, value: 100.0, date: Date.today-7.days, description: 'Dinheiro extra')
 
-Entry.create(account: itau_account, entry_type: expense, value: 12.50, date: Date.today, description: 'Padaria')
-Entry.create(account: itau_account, entry_type: expense, value: 100.0, date: Date.today, description: 'IFood')
-Entry.create(account: itau_account, entry_type: expense, value: 58.30, date: Date.today, description: 'Gasolina')
+Entry.create(account: itau_account, entry_type: expense, value: 12.50, date: Date.today-5.days, description: 'Padaria')
+Entry.create(account: itau_account, entry_type: expense, value: 100.0, date: Date.today-5.days, description: 'IFood')
+Entry.create(account: itau_account, entry_type: expense, value: 58.30, date: Date.today-3.days, description: 'Gasolina')
 Entry.create(account: itau_account, entry_type: expense, value: 300, date: Date.today, description: 'Mercado')
 
-Entry.create(account: nubank_bruna_account, entry_type: expense, value: 300.0, date: Date.today, description: 'Emergência')
+Entry.create(account: nubank_bruna_account, entry_type: expense, value: 300.0, date: Date.today-8.days, description: 'Emergência')
 
-Entry.create(account: nubank_bruno_account, entry_type: expense, value: 10.0, date: Date.today, description: 'Mercado')
+Entry.create(account: nubank_bruno_account, entry_type: expense, value: 10.0, date: Date.today-8.days, description: 'Mercado')
