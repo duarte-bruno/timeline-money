@@ -1,22 +1,25 @@
 class Entry < ApplicationRecord
   belongs_to :entry_type
   belongs_to :account
+  has_many :entries
+  belongs_to :entry
 
-  after_create :update_balance
+  before_create :create_value
 
   validates :entry_type, presence: true
   validates :account, presence: true
-  validates :value, numericality: { greater_than: 0 }, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }
-  validates :date, presence: true
+  validates :value, numericality: { greater_than: 0 }, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }, if: -> { !value.nil? }
+  validates :estimated_value, numericality: { greater_than: 0 }, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validates :recurrence_time, :inclusion => { :in => %w(Y M W F) }
   validates :description, presence: true, length: { minimum: 3 }
 
   private
 
-  def update_balance
-    if self.entry_type_id == 1 #income
-      self.account.update!(balance: self.account.balance + self.value)
-    elsif self.entry_type_id == 2 #expense
-      self.account.update!(balance: self.account.balance - self.value)
+  def create_value
+    if value.nil?
+      value = estimated_value
     end
   end
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :balances
   resources :users
   resources :entries
   resources :entry_types, only: [:index, :show]
